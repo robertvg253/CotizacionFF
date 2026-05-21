@@ -212,10 +212,9 @@ const MeetingScheduler = ({ isOpen, onClose }: SchedulerProps) => {
 // --- HEADER COMPONENT ---
 interface HeaderProps {
   onApprove: () => void;
-  onOpenScheduler: () => void;
 }
 
-const Header = ({ onApprove, onOpenScheduler }: HeaderProps) => {
+const Header = ({ onApprove }: HeaderProps) => {
   const [isScrolledDown, setIsScrolledDown] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -258,9 +257,6 @@ const Header = ({ onApprove, onOpenScheduler }: HeaderProps) => {
       </nav>
 
       <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-        <button onClick={onOpenScheduler} className="btn-outline hidden-mobile" style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}>
-          Agendar Reunión
-        </button>
         <button onClick={onApprove} className="btn-primary" style={{ padding: '0.55rem 1.25rem', fontSize: '0.85rem' }}>
           Aprobar Propuesta
         </button>
@@ -697,7 +693,7 @@ const InvestmentSection = ({ onApprove }: InvestmentProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            style={{ padding: '1rem 0' }}
+            style={{ padding: '1rem' }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
               <div>
@@ -1032,7 +1028,7 @@ function App() {
           <ApprovalScreen onOpenScheduler={handleOpenScheduler} />
         ) : (
           <>
-            <Header onApprove={handleApprove} onOpenScheduler={handleOpenScheduler} />
+            <Header onApprove={handleApprove} />
             <main>
               <Hero onOpenScheduler={handleOpenScheduler} />
               <ContextSection />
