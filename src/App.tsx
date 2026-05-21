@@ -14,7 +14,8 @@ import {
   Layers,
   Settings,
   X,
-  MessageSquare
+  MessageSquare,
+  Mail
 } from 'lucide-react';
 
 // --- INTERACTIVE SCHEDULER MODAL ---
@@ -251,6 +252,7 @@ const Header = ({ onApprove, onOpenScheduler }: HeaderProps) => {
       <nav className="hidden-tablet" style={{ display: 'flex', gap: '2rem', alignItems: 'center', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
         <a href="#salto" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>El Salto</a>
         <a href="#pilares" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>Los Pilares</a>
+        <a href="#notificaciones" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>Valor agregado</a>
         <a href="#inversion" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>Inversión</a>
         <a href="#soporte" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>Soporte</a>
       </nav>
@@ -466,6 +468,115 @@ const PillarsSection = () => {
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', paddingLeft: '1.25rem', color: '#cbd5e1', fontSize: '0.9rem', lineHeight: '1.6' }}>
                 {p.items.map((item, i) => (
                   <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// --- SECCIÓN DE BONUS: MOTOR DE NOTIFICACIONES ---
+const NotificationsSection = () => {
+  const features = [
+    {
+      title: '1. Constructor Dinámico (Manual)',
+      desc: 'Herramienta de comunicación directa para campañas masivas, anuncios institucionales o avisos específicos del club.',
+      items: [
+        'Filtros Avanzados (Sede, Género, Etiquetas)',
+        'Personalización Visual (Asunto, Banner)',
+        'Botón de Acción (CTA)'
+      ],
+      icon: (
+        <div style={{ position: 'relative', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Mail size={24} color="var(--cyan)" />
+          <div style={{ position: 'absolute', bottom: '-4px', right: '-4px', background: 'var(--bg-dark)', borderRadius: '50%', padding: '1px', display: 'flex', border: '1px solid rgba(6, 182, 212, 0.3)' }}>
+            <Settings size={12} color="var(--cyan)" />
+          </div>
+        </div>
+      ),
+      glowColor: 'rgba(6, 182, 212, 0.15)',
+      borderColor: 'rgba(6, 182, 212, 0.25)',
+      badgeColor: 'var(--cyan)'
+    },
+    {
+      title: '2. Alertas Automáticas (Triggers)',
+      desc: 'Notificaciones automatizadas e inmediatas activadas por la dinámica diaria y eventos en las sedes.',
+      items: [
+        'Envío Inmediato por Cancelación de Clase',
+        'Variables Dinámicas (Nombre, Atleta, Clase)',
+        'Operación 100% Autónoma (Sin intervención humana)'
+      ],
+      icon: (
+        <div style={{ position: 'relative', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Mail size={24} color="var(--teal)" />
+          <div style={{ position: 'absolute', bottom: '-4px', right: '-4px', background: 'var(--bg-dark)', borderRadius: '50%', padding: '1px', display: 'flex', border: '1px solid rgba(20, 184, 166, 0.3)' }}>
+            <Zap size={12} color="var(--teal)" />
+          </div>
+        </div>
+      ),
+      glowColor: 'rgba(20, 184, 166, 0.15)',
+      borderColor: 'rgba(20, 184, 166, 0.25)',
+      badgeColor: 'var(--teal)'
+    }
+  ];
+
+  return (
+    <section id="notificaciones" className="section container" style={{ scrollMarginTop: '6rem' }}>
+      <div style={{ textAlign: 'center', marginBottom: '4rem', position: 'relative' }}>
+        {/* Subtle background glow behind title */}
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '250px', height: '100px', background: 'var(--gradient-brand)', borderRadius: '50%', filter: 'blur(80px)', opacity: 0.15, pointerEvents: 'none' }} />
+        
+        <div className="badge" style={{ marginBottom: '1rem', border: '1px solid var(--cyan)', background: 'rgba(6, 182, 212, 0.05)' }}>
+           Valor Agregado
+        </div>
+        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
+          Bonus Exclusivo: <span className="text-gradient">Motor de Notificaciones</span>
+        </h2>
+        <p className="text-muted m-auto max-w-3xl" style={{ fontSize: '1.1rem' }}>
+          Un sistema integrado de comunicación directa por correo electrónico para mantener al atleta informado, incentivar la asistencia y automatizar alertas críticas sin fricciones ni tareas manuales.
+        </p>
+      </div>
+
+      <div className="grid md-grid-cols-2 gap-8 max-w-5xl m-auto">
+        {features.map((feat, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ y: -6, borderColor: feat.badgeColor, boxShadow: `0 10px 30px -10px ${feat.glowColor}` }}
+            className="card-glass p-8"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.5rem',
+              border: `1px solid ${feat.borderColor}`,
+              background: `radial-gradient(circle at top right, ${feat.glowColor}, transparent 60%), rgba(15, 23, 42, 0.4)`,
+              position: 'relative',
+              borderRadius: '1.5rem'
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '0.75rem', borderRadius: '0.75rem', display: 'flex', alignItems: 'center' }}>
+                {feat.icon}
+              </div>
+              <span className="badge" style={{ fontSize: '0.7rem', color: feat.badgeColor, border: `1px solid ${feat.borderColor}`, background: 'transparent' }}>
+                {idx === 0 ? 'Manual' : 'Automatizado'}
+              </span>
+            </div>
+
+            <div>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '0.5rem', color: '#fff' }}>{feat.title}</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.5' }}>{feat.desc}</p>
+            </div>
+
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.25rem', marginTop: 'auto' }}>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none', padding: 0 }}>
+                {feat.items.map((item, i) => (
+                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: '#cbd5e1', fontSize: '0.95rem', lineHeight: '1.4' }}>
+                    <CheckCircle2 size={18} color={feat.badgeColor} style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span>{item}</span>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -926,6 +1037,7 @@ function App() {
               <Hero onOpenScheduler={handleOpenScheduler} />
               <ContextSection />
               <PillarsSection />
+              <NotificationsSection />
               <InvestmentSection onApprove={handleApprove} />
               <RetainerSection />
               <CTASection onApprove={handleApprove} onOpenScheduler={handleOpenScheduler} />
