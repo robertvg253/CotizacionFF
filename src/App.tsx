@@ -15,7 +15,9 @@ import {
   Settings,
   X,
   MessageSquare,
-  Mail
+  Mail,
+  Smartphone,
+  Shield
 } from 'lucide-react';
 
 // --- INTERACTIVE SCHEDULER MODAL ---
@@ -250,6 +252,7 @@ const Header = ({ onApprove }: HeaderProps) => {
 
       <nav className="hidden-tablet" style={{ display: 'flex', gap: '2rem', alignItems: 'center', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
         <a href="#salto" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>El Salto</a>
+        <a href="#producto" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>El Producto</a>
         <a href="#pilares" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>Los Pilares</a>
         <a href="#notificaciones" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>Valor agregado</a>
         <a href="#inversion" style={{ color: 'var(--text-main)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'color 0.2s' }}>Inversión</a>
@@ -378,6 +381,174 @@ const ContextSection = () => (
     </div>
   </section>
 );
+
+// --- EL PRODUCTO: BONDADES PRINCIPALES ---
+const ProductFeaturesSection = () => {
+  return (
+    <section id="producto" className="section container" style={{ scrollMarginTop: '6rem' }}>
+      <div style={{ textAlign: 'center', marginBottom: '4rem', position: 'relative' }}>
+        {/* Decorative background blur */}
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '300px', height: '120px', background: 'var(--gradient-brand)', borderRadius: '50%', filter: 'blur(90px)', opacity: 0.12, pointerEvents: 'none' }} />
+        
+        <div className="badge" style={{ marginBottom: '1rem' }}>El Producto</div>
+        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
+          Diseñado para el Éxito Operativo y <span className="text-gradient">Financiero</span>
+        </h2>
+        <p className="text-muted m-auto max-w-3xl" style={{ fontSize: '1.1rem' }}>
+          Una solución robusta a la medida enfocada en la automatización del negocio, dividida en dos interfaces integradas que protegen el flujo de caja y elevan la experiencia del usuario.
+        </p>
+      </div>
+
+      <div className="grid md-grid-cols-2 gap-8 mb-12">
+        {/* Column 1: Athlete Experience */}
+        <motion.div 
+          whileHover={{ y: -6, borderColor: 'rgba(6, 182, 212, 0.3)' }}
+          className="card-glass p-8"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1.5rem',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            background: 'radial-gradient(circle at top right, rgba(6, 182, 212, 0.03), transparent 60%), rgba(15, 23, 42, 0.4)',
+            borderRadius: '1.5rem',
+            position: 'relative'
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ background: 'rgba(6, 182, 212, 0.1)', padding: '0.75rem', borderRadius: '0.75rem', display: 'flex', alignItems: 'center' }}>
+              <Smartphone size={28} color="var(--cyan)" />
+            </div>
+            <span className="badge" style={{ fontSize: '0.7rem', padding: '0.3rem 0.8rem' }}>Atletas / Clientes</span>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: '#fff' }}>Experiencia del Atleta (Panel de Usuario)</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+              Una versión propia, moderna y optimizada que los atletas manejan para su día a día. Automatiza el ciclo de vida de su suscripción de principio a fin.
+            </p>
+          </div>
+
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.25rem', marginTop: 'auto' }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', listStyle: 'none', padding: 0 }}>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <CheckCircle2 size={18} color="var(--cyan)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                <div>
+                  <strong style={{ color: '#fff', fontSize: '0.95rem' }}>Agendamiento Inteligente por Sede:</strong>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
+                    Visualización de horarios, reserva y cancelación de clases regulares y especiales. Los usuarios solo ven y reservan en la sede física en la que están inscritos.
+                  </p>
+                </div>
+              </li>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <CheckCircle2 size={18} color="var(--cyan)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                <div>
+                  <strong style={{ color: '#fff', fontSize: '0.95rem' }}>Autoservicio de Pago Express:</strong>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
+                    Formulario estilo "caché" que notifica al atleta el vencimiento de su plan (ej. "Tu suscripción vence mañana"), proporciona los datos bancarios y permite reportar la referencia del pago en segundos.
+                  </p>
+                </div>
+              </li>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <CheckCircle2 size={18} color="var(--cyan)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                <div>
+                  <strong style={{ color: '#fff', fontSize: '0.95rem' }}>Activación Instantánea Autónoma:</strong>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
+                    Una vez reportado el pago móvil o transferencia, la plataforma lo valida con el banco y libera la agenda de forma inmediata, sin esperas ni intervención humana.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </motion.div>
+
+        {/* Column 2: Admin Experience */}
+        <motion.div 
+          whileHover={{ y: -6, borderColor: 'rgba(20, 184, 166, 0.3)' }}
+          className="card-glass p-8"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1.5rem',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            background: 'radial-gradient(circle at top right, rgba(20, 184, 166, 0.03), transparent 60%), rgba(15, 23, 42, 0.4)',
+            borderRadius: '1.5rem',
+            position: 'relative'
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '0.75rem', borderRadius: '0.75rem', display: 'flex', alignItems: 'center' }}>
+              <Shield size={28} color="var(--teal)" />
+            </div>
+            <span className="badge" style={{ fontSize: '0.7rem', padding: '0.3rem 0.8rem', color: 'var(--teal)', borderColor: 'rgba(20, 184, 166, 0.3)' }}>Staff / Gerencia</span>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: '#fff' }}>Centro de Control Administrativo (Panel de Control)</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+              El centro neurálgico del negocio para el staff y gerentes. Protege el flujo de caja, automatiza conciliaciones y gestiona recursos de forma segura.
+            </p>
+          </div>
+
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.25rem', marginTop: 'auto' }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', listStyle: 'none', padding: 0 }}>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <CheckCircle2 size={18} color="var(--teal)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                <div>
+                  <strong style={{ color: '#fff', fontSize: '0.95rem' }}>API Bancaria Mejorada y Automatizada:</strong>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
+                    Integración avanzada con el Banco Venezolano que recibe y asocia notificaciones de transacciones entrantes con nombre, apellido y referencia en tiempo real.
+                  </p>
+                </div>
+              </li>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <CheckCircle2 size={18} color="var(--teal)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                <div>
+                  <strong style={{ color: '#fff', fontSize: '0.95rem' }}>Seguridad de Caja y Roles Fiduciarios:</strong>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
+                    Limita privilegios de validación manual. Solo administradores autorizados pueden aprobar o forzar pagos manuales de forma justificada, protegiendo las finanzas del negocio.
+                  </p>
+                </div>
+              </li>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <CheckCircle2 size={18} color="var(--teal)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                <div>
+                  <strong style={{ color: '#fff', fontSize: '0.95rem' }}>Gestión Dinámica de Clases sin Programación:</strong>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
+                    Permite crear, eliminar o cambiar de horario clases de forma 100% autónoma. Todo cambio (ej. mudar boxeo de jueves a martes) se actualiza de inmediato para los atletas.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Callout comparing with current solution */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="card-glass p-8 max-w-5xl m-auto"
+        style={{
+          border: '1px solid rgba(6, 182, 212, 0.2)',
+          background: 'rgba(6, 182, 212, 0.01)',
+          borderRadius: '1.5rem',
+          boxShadow: 'var(--glow-cyan-soft)'
+        }}
+      >
+        <h4 style={{ fontSize: '1.25rem', color: '#fff', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          💡 El Verdadero Diferencial Frente a su Aplicación de Suscripción Actual
+        </h4>
+        <p style={{ color: '#cbd5e1', fontSize: '0.95rem', lineHeight: '1.7' }}>
+          Actualmente, Fitness Factory paga una mensualidad por un software comercial genérico para administrar sus clases. Sin embargo, ese sistema no tiene integración con la banca nacional de Venezuela (lo que obliga al personal a verificar las cuentas del banco manualmente) ni cuenta con mecanismos estrictos de seguridad por roles para auditoría de pagos.
+        </p>
+        <p style={{ color: 'var(--cyan)', fontSize: '0.95rem', fontWeight: 600, marginTop: '0.75rem' }}>
+          Nuestra solución a la medida unifica la operatividad física y la cobranza en un flujo 100% automatizado, transparente y seguro para el staff directivo.
+        </p>
+      </motion.div>
+    </section>
+  );
+};
 
 // --- LOS 4 PILARES DE COMPLEJIDAD ---
 const PillarsSection = () => {
@@ -1032,6 +1203,7 @@ function App() {
             <main>
               <Hero onOpenScheduler={handleOpenScheduler} />
               <ContextSection />
+              <ProductFeaturesSection />
               <PillarsSection />
               <NotificationsSection />
               <InvestmentSection onApprove={handleApprove} />
